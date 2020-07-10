@@ -1,0 +1,14 @@
+{% extends "seekers_home/base.html" %}
+{% block content %}
+    <h1>List of Rooms to be displayed here below:</h1>
+        {% for room in rooms %}
+            <h2>{{ room.title }}</h2>
+            <p>Address: {{ room.address }}</p>
+            <p>Posted By: {{ room.posted_by }}</p>
+            <p>Rent: {{ room.rent }}</p>
+            <p>Rent Type: {{ room.rent_type }}</p>
+            <p>Share Type: {{ room.share_type }}</p>
+            <p>Available from: {{ room.available_from }}</p>
+        
+        {% endfor %}
+{% endblock content %}
