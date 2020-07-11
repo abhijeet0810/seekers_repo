@@ -54,15 +54,16 @@ class Rooms(models.Model):
     
 
 
-
-# class Room_seeker(models.Model):
-#     place = models.CharField(max_length=100)
-#     profession = models.CharField(max_length=100)
-#     budget = models.IntegerField()
-#     description = models.CharField(max_length=1024)
-#     posted_by = models.OneToOneField(User, on_delete=models.CASCADE)
+class Room_seeker(models.Model):
+    place = models.CharField(max_length=100)
+    profession = models.CharField(max_length=100)
+    budget = models.IntegerField()
+    description = models.CharField(max_length=1024)
+    posted_by = models.OneToOneField(User, on_delete=models.CASCADE)
     
+    def __str__(self):
+        return self.place
     
-#     # metro = # (multi choice) from list of Metro stations: M1, M2, M3, M4, M5.......
-#     # rer =  # (multi choice) from list of RER stations: RER A, RER B, RER c, .....
-#     # bus_station = models.CharField(max_length=100)
+    # metro = # (multi choice) from list of Metro stations: M1, M2, M3, M4, M5.......
+    # rer =  # (multi choice) from list of RER stations: RER A, RER B, RER c, .....
+    # bus_station = models.CharField(max_length=100)
