@@ -52,6 +52,7 @@ class Rooms(models.Model):
     # date_posted = models.DateTimeField(default=timezone.now)
     # photos_upload = #
     
+    
 
 
 class Room_seeker(models.Model):
@@ -64,6 +65,8 @@ class Room_seeker(models.Model):
     def __str__(self):
         return self.place
     
+    # gender: from register model
+    # DOB : from register model
     # metro = # (multi choice) from list of Metro stations: M1, M2, M3, M4, M5.......
     # rer =  # (multi choice) from list of RER stations: RER A, RER B, RER c, .....
     # bus_station = models.CharField(max_length=100)

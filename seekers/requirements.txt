@@ -2,6 +2,7 @@ Django>=2.0,<3.0
 mysqlclient==1.3.13
 django-mysql==2.2.0
 django-crispy-forms
+Pillow
 djangorestframework
 django-rest-auth
 django-mysql-ssl
