@@ -7,10 +7,22 @@ from django.contrib.auth.models import User
 class Rooms(models.Model):
     RENT = 'RENT'
     SUB_RENT = 'SUB RENT'
+
     Full_apartment = 'Full apartment'
     Sharing_apartnent = 'Sharing apartnent'
     Room_sharing = 'Room sharing'
     Studio = 'Studio'
+
+    Furnished = 'Furnished'
+    Semi_furnished = 'Semi furnished'
+    Non_furnished = 'Non furnished'
+
+    Apartment_type = [
+        (Furnished, 'Furnished'),
+        (Semi_furnished, 'Semi furnished'),
+        (Non_furnished,'Non furnished'),
+    ]
+
     RENT_TYPE_CHOICES = [
         (RENT, 'Rent'),
         (SUB_RENT, 'Sub Rent'),
@@ -21,6 +33,7 @@ class Rooms(models.Model):
         (Room_sharing, 'Room sharing'),
         (Studio,'Studio'),
     ]
+
     title = models.CharField(max_length=100)
     address = models.CharField(max_length=200)
     pin_code = models.CharField(max_length=10)
@@ -28,6 +41,7 @@ class Rooms(models.Model):
     nearest_station = models.CharField(max_length=100)
     rent = models.IntegerField() # Euro symbol at the end :(
     security_deposit = models.IntegerField() # Euro symbol at the end :(
+    apartment_type = models.CharField(max_length=30, choices=Apartment_type, default=Non_furnished,)
     rent_type = models.CharField(max_length=10, choices=RENT_TYPE_CHOICES, default=RENT,) # How to mention choices between two here : Rent / Sub-Rent
     share_type = models.CharField(max_length=100, choices= SHARE_TYPE_CHOICES, default=Full_apartment,) # choices: Full apartment / Sharing apartnent / Room sharing / Studio
     size_of_full_apartment = models.IntegerField() # in m**2
@@ -39,7 +53,6 @@ class Rooms(models.Model):
     def __str__(self):
         return self.title
 
-    # apartment_type = # choices: Furnished / Semi-Furnished / Non-Furnished
     # available_for = # : (Multi choice) Single / Couple and Male / Female / Anysex
     # available_from = models.DateTimeField()
     # duration = models.CharField(max_length=100) # make it d/m/y
