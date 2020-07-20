@@ -3,12 +3,22 @@
     <h1>List of Rooms to be displayed here below:</h1>
         {% for room in rooms %}
             <h2>{{ room.title }}</h2>
-            <p>Address: {{ room.address }}</p>
+            <p>Address: {{ room.address }} {{ room.pin_code }} {{ room.city }} </p>
+            <p>Nearest Station: {{ room.nearest_station }}</p>
             <p>Posted By: {{ room.posted_by }}</p>
-            <p>Rent: {{ room.rent }}</p>
+            <p>Rent: {{ room.rent }} €</p>
+            <p>Security Deposit: {{ room.security_deposit }} €</p>
+            <p>Apartment Type: {{ room.apartment_type }}</p>
             <p>Rent Type: {{ room.rent_type }}</p>
             <p>Share Type: {{ room.share_type }}</p>
+            <p>Size of full apartment: {{ room.size_of_full_apartment }} m<sup>2</sup></p>
+            <p>Available for: {{ room.available_for }}</p>
             <p>Available from: {{ room.available_from }}</p>
-        
+            <p>Guarantor Required: {{ room.guarantor_required }}</p>
+            <p>Contract: {{ room.contract }}</p>
+            <p>APL or CAF available: {{ room.apl_caf }}</p>
+            <p>Duration: {{ room.duration }} {{room.duration_m_w_d}}</p>
+            <p>Description: {{ room.description }}</p>
+            <p>Posted on: {{ room.posted_on }}</p>
         {% endfor %}
 {% endblock content %}

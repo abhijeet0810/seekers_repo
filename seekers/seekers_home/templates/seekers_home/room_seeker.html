@@ -2,11 +2,13 @@
 {% block content %}
     <h1>List of Room Seekers to be displayed here below:</h1>
         {% for seeker in room_seeker %}
+            <h2>Posted By: {{ seeker.posted_by }}</h2>
             <p>Place: {{seeker.place }}</p>
             <p>Profession: {{seeker.profession }}</p>
-            <p>Budget: {{seeker.budget }}</p>
+            <p>Budget: {{seeker.budget }} €</p>
             <p>Description: {{seeker.description }}</p>
-            <p>Posted By: {{ seeker.posted_by }}</p>
+            
+            
         
         {% endfor %}
 {% endblock content %}
