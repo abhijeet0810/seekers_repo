@@ -1,0 +1,31 @@
+{% extends "seekers_home/base.html" %}
+{% block content %}
+<h2>Room selected</h2>
+        
+            <h2>{{ object.title }}</h2>
+            <p>Address: {{ object.address }} {{ object.pin_code }} {{ object.city }} </p>
+            <p>Nearest Station: {{ object.nearest_station }}</p>
+            <p>Posted By: {{ object.posted_by }}</p>
+            <p>Rent: {{ object.rent }} €</p>
+            <p>Security Deposit: {{ object.security_deposit }} €</p>
+            <p>Apartment Type: {{ object.apartment_type }}</p>
+            <p>Rent Type: {{ object.rent_type }}</p>
+            <p>Share Type: {{ object.share_type }}</p>
+            <p>Size of full apartment: {{ object.size_of_full_apartment }} m<sup>2</sup></p>
+            <p>Available for: {{ object.available_for }}</p>
+            <p>Available from: {{ object.available_from }}</p>
+            <p>Guarantor Required: {{ object.guarantor_required }}</p>
+            <p>Contract: {{ object.contract }}</p>
+            <p>APL or CAF available: {{ object.apl_caf }}</p>
+            <p>Duration: {{ object.duration }} {{object.duration_m_w_d}}</p>
+            <p>Description: {{ object.description }}</p>
+            <p>Posted on: {{ object.posted_on }}</p>
+            {% if object.posted_by == user %}
+                <div>
+                    <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'seekers-home-rooms-update' object.id %}">Update</a>
+                    <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'seekers-home-rooms-delete' object.id %}">Delete</a>
+                </div>
+            {% endif %}
+
+
+{% endblock content %}

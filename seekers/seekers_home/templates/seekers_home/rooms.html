@@ -1,8 +1,8 @@
 {% extends "seekers_home/base.html" %}
 {% block content %}
-    <h1>List of Rooms to be displayed here below:</h1>
+    <h2>List of Rooms to be displayed below</h2>
         {% for room in rooms %}
-            <h2>{{ room.title }}</h2>
+            <h2><a href="{% url 'seekers-home-rooms-detail' room.id %}">{{ room.title }}</a></h2>
             <p>Address: {{ room.address }} {{ room.pin_code }} {{ room.city }} </p>
             <p>Nearest Station: {{ room.nearest_station }}</p>
             <p>Posted By: {{ room.posted_by }}</p>

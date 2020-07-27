@@ -2,6 +2,7 @@ from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
 from multiselectfield import MultiSelectField
+from django.urls import reverse
 
 # Create your models here.
 
@@ -90,6 +91,10 @@ class Rooms(models.Model):
     def __str__(self):
         return self.title
 
+    # this will route the path to the detail view after creating the new post
+    def get_absolute_url(self):
+        return reverse('seekers-home-rooms-detail', kwargs={'pk': self.pk})
+
  
     # contact_number = models.CharField(max_length=100) # In-app messaging portal
     # contact_mail = models.CharField(max_length=100) # Mail address can not be shared publically
@@ -105,6 +110,7 @@ class Room_seeker(models.Model):
     budget = models.IntegerField()
     description = models.CharField(max_length=1024)
     posted_by = models.OneToOneField(User, on_delete=models.CASCADE)
+    date_posted = models.DateTimeField(default=timezone.now)
     
     def __str__(self):
         return self.place
