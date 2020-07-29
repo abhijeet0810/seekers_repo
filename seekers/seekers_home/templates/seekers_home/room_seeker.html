@@ -6,7 +6,7 @@
           <img class="rounded-circle article-img" src="{{ seeker.posted_by.profile.image.url }}">
           <div class="media-body">
             <div class="article-metadata">
-              <a class="mr-2" href="#">{{ seeker.posted_by }}</a>
+              <a class="mr-2" href="{% url 'seekers-home-room-seeker-detail' seeker.id %}">{{ seeker.posted_by }}</a>
               <small class="text-muted">{{ seeker.date_posted|date:"F d, Y" }}</small>
             </div>
             <p>Place: {{seeker.place }}</p>

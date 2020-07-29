@@ -114,6 +114,9 @@ class Room_seeker(models.Model):
     
     def __str__(self):
         return self.place
+
+    def get_absolute_url(self):
+        return reverse('seekers-home-room-seeker-detail', kwargs={'pk': self.pk})
     
     # Make a dependent/chained dropdown list of Region and City
     # gender: from register model
