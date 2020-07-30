@@ -111,6 +111,11 @@ class Room_seeker(models.Model):
     description = models.CharField(max_length=1024)
     posted_by = models.OneToOneField(User, on_delete=models.CASCADE)
     date_posted = models.DateTimeField(default=timezone.now)
+
+    # make a boolean attribute  as: is_room_seeker_authenticated (True/False)
+    # --- It would be True when the Room seeker is added otherwise False
+    # 
+    # in base.html -- { if room_seekers.is_room_seeker_authenticated } : You are already Added { else } : Add yourself 
     
     def __str__(self):
         return self.place
